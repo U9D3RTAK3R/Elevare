@@ -1,0 +1,1 @@
+.contact-page-wrapper { background-color: #463174; /* purple background */ width: 100%; /* stretch full width */ padding: 60px 0; /* top & bottom spacing */ display: flex; flex-direction: column; /* stack children vertically */ }

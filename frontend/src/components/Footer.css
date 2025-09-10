@@ -1,0 +1,91 @@
+.footer {
+  background-color: #593f92;    /* purple background */
+  color: white;                 /* white text everywhere */
+  width: 100%;                  /* stretch across screen horizontally */
+  min-height: 42vh;             /* take up ~42% of viewport height */
+  position: absolute;
+  display: flex;                /* flex container */
+  flex-direction: column;       /* arrange children vertically */
+  justify-content: flex-start;  /* align children to top */
+  align-items: center;          /* center items horizontally */
+
+  padding: 60px 60px 40px;      /* top, left/right, bottom spacing */
+  box-sizing: border-box;       /* include padding in size */
+
+  /* fixed positioning was removed, so it sits after content */
+  /* position: fixed;
+     bottom: 0;
+     left: 0;
+     right: 0; */
+
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+}
+
+.footer img {
+  max-height: 55px;    /* keep logo smaller */
+  margin-bottom: 25px; /* spacing below logo */
+}
+
+.footer-links {
+  display: flex;         /* horizontal layout */
+  flex-wrap: wrap;       /* allow wrapping if too many links */
+  gap: 30px;             /* spacing between links */
+  margin-bottom: 25px;   /* space below links */
+}
+
+.footer-links a {
+  text-decoration: none;   /* remove underlines */
+  color: white;            /* link text color */
+  font-size: 14px;         /* slightly smaller text */
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ddd;   /* hover effect */
+}
+
+.footer-sm {
+  display: flex;  /* row of icons */
+  gap: 30px;      /* spacing between icons */
+}
+
+.footer-sm a {
+  color: white;
+  font-size: 0;            /* hide text, only show icon */
+  transition: color 0.3s ease;
+}
+
+.footer-sm a svg {
+  width: 22px;   /* icon size */
+  height: 22px;
+}
+
+.footer-sm a:hover {
+  color: #ddd;   /* icon hover */
+}
+
+.footer-credits {
+  margin-top: 30px;        /* spacing above credits */
+  text-align: center;
+  font-size: 12px;
+  color: #ddd;
+
+  /* THIS is the problem */
+  position: absolute;      /* takes it out of flex flow */
+  bottom: 10px;            /* sticks it to viewport bottom,
+                               not footer bottom */
+}
+
+.footer-credits p {
+  margin: 4px 0;   /* tighten line spacing */
+}
+
+.footer-credits .dev-credit {
+  font-weight: 500;
+}
+.footer {
+  position: relative; /* make footer the reference */
+}
+
+

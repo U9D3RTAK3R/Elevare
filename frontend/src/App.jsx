@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
+import Services from './pages/Services';
+import FloatingButton from './components/FloatingButton';
+import myIcon from './assets/AI1.png';
+import ContactPage from './pages/Contact';
+import Footer from './components/Footer';
+import About from './pages/About';
+
+// import FloatingButton from './components/FloatingButton';
+// import myIcon from './assets/my-icon.png'; // <-- replace with your own small image
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app-root">
+      <main className="main-content">
+                <Services />
+<About />
+        <ContactPage />
+      </main>
+      <FloatingButton imageSrc={myIcon} navigateTo="/" />
+
+      <Footer />
+    </div>
+  );
 }
 
-export default App
+export default App;
