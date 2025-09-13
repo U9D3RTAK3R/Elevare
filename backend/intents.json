@@ -1,0 +1,267 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["Hi", "Hello", "Hey", "Good morning", "Good afternoon"],
+      "responses": ["Hello! I'm here to listen. What's on your mind today?", "Hi there. Thanks for reaching out. How are you feeling?"]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Bye", "Goodbye", "See you later", "I have to go", "quit"],
+      "responses": ["Take care of yourself. I'm here anytime you need to talk.", "Goodbye. Remember to be kind to yourself today."]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Thanks", "Thank you", "That was helpful", "Appreciate it"],
+      "responses": ["You're most welcome.", "I'm glad I could help a little. Your well-being is what matters."]
+    },
+    {
+      "tag": "about",
+      "patterns": ["Who are you?", "What can you do?", "What is this?"],
+      "responses": ["I'm a supportive chatbot designed to be a safe space for students to talk through their feelings and learn about mental health strategies. It's important to remember I am not a substitute for a professional therapist."]
+    },
+    {
+      "tag": "crisis_help",
+      "patterns": ["i want to kill myself", "i want to die", "i'm going to commit suicide", "i can't go on", "end my life"],
+      "responses": ["It sounds like you are in an incredible amount of pain right now, and it takes immense courage to talk about it. Please, reach out to a professional immediately. You can connect with people who can support you by calling or texting 988 in the US and Canada, or calling 111 in the UK, anytime. Please reach out to them."]
+    },
+    {
+      "tag": "stress_anxiety",
+      "patterns": ["I'm so stressed", "I feel anxious", "Finals are overwhelming me", "I can't handle the pressure", "I'm worried all the time"],
+      "responses": ["That sounds really heavy. Stress and anxiety can be all-consuming. Can you tell me what's at the front of your mind right now?", "It's completely understandable to feel that way with everything students have to juggle. Is this feeling more of a constant worry, or is it a more intense, physical feeling of panic?"],
+      "context_setter": "anxiety_context"
+    },
+    {
+      "tag": "anxiety_drilldown_panic",
+      "patterns": ["panic", "i'm panicking", "i think i'm having a panic attack", "i can't breathe"],
+      "responses": ["Okay, it sounds like you're having a panic attack. Let's ground you in the present moment. Can we try a simple breathing exercise together? It can help calm your body's response."],
+      "context_filter": "anxiety_context",
+      "context_setter": "breathing_exercise_context"
+    },
+    {
+      "tag": "anxiety_drilldown_worry",
+      "patterns": ["constant worry", "i'm always worried", "i overthink everything", "my mind is racing"],
+      "responses": ["That constant, background hum of worry is exhausting. It's often caused by negative thought patterns. Sometimes, learning to challenge those thoughts can make a big difference. Would you be open to hearing about a technique for that?"],
+      "context_filter": "anxiety_context",
+      "context_setter": "cognitive_reframing_context"
+    },
+    {
+      "tag": "feeling_down",
+      "patterns": ["I feel sad", "I'm feeling down", "I'm depressed", "I don't have motivation", "I don't enjoy anything anymore"],
+      "responses": ["That sounds incredibly difficult. Feeling a persistent sadness or a loss of interest in things you used to enjoy are key signs of depression. It's not your fault. Have you noticed any changes in your sleep or appetite?"],
+      "context_setter": "depression_context"
+    },
+    {
+      "tag": "depression_followup_sleep",
+      "patterns": ["i can't sleep", "my sleep is bad", "i'm not sleeping well", "i sleep all the time"],
+      "responses": ["Thank you for sharing that. Sleep disruption is a very common part of feeling down, and it's exhausting. Small things like trying to go to bed at the same time each night, or avoiding screens an hour before bed, can sometimes help regulate your body's clock."],
+      "context_filter": "depression_context"
+    },
+    {
+      "tag": "depression_followup_appetite",
+      "patterns": ["my appetite changed", "i'm not hungry", "i am eating all the time", "i have no appetite", "i dont wanna eat", "i have lost my appetite"],
+      "responses": ["Changes in appetite are definitely a sign that your body is feeling the stress, too. It's important to try and nourish your body, even if it's just something small. Your university's health services can offer great advice on nutrition and mental health."],
+      "context_filter": "depression_context"
+    },
+    {
+      "tag": "procrastination",
+      "patterns": ["I can't start my work", "I keep procrastinating", "I have a deadline but I can't focus", "I'm avoiding my assignment"],
+      "responses": ["Procrastination is rarely about laziness; it's often about anxiety or feeling overwhelmed by the task. It's a tough cycle to break. Is it the task itself that feels too big, or is it a fear of not doing it perfectly?"],
+      "context_setter": "procrastination_context"
+    },
+    {
+      "tag": "procrastination_drilldown_overwhelmed",
+      "patterns": ["it's too big", "i'm overwhelmed", "i don't know where to start"],
+      "responses": ["That's a very common reason. When a task looks like a mountain, we don't even want to take the first step. Have you heard of the Pomodoro Technique? It's great for breaking down big tasks into small, manageable chunks."],
+      "context_filter": "procrastination_context",
+      "context_setter": "pomodoro_context"
+    },
+    {
+      "tag": "procrastination_drilldown_perfectionism",
+      "patterns": ["fear of failure", "i'm afraid it won't be good enough", "perfectionism"],
+      "responses": ["Ah, perfectionism. The fear of not producing perfect work can be paralyzing. It's often helpful to give yourself permission to create a 'terrible first draft.' The goal isn't to be perfect, it's just to get something on the page."],
+      "context_filter": "procrastination_context"
+    },
+    {
+      "tag": "loneliness",
+      "patterns": ["I feel lonely", "I have no friends", "it's hard to connect with people", "i feel so isolated"],
+      "responses": ["Feeling lonely, even when you're surrounded by people on campus, is a very real and painful experience. It takes courage to even admit it. Are you finding it difficult to meet new people, or to deepen the friendships you already have?"],
+      "context_setter": "loneliness_context"
+    },
+    {
+      "tag": "loneliness_drilldown_meet_people",
+      "patterns": ["meet new people", "i don't know how to make friends", "how do i meet people"],
+      "responses": ["It can be intimidating. A low-pressure way to start is by joining a club or group based on a hobby you genuinely love. The shared interest gives you an immediate, easy topic of conversation."],
+      "context_filter": "loneliness_context"
+    },
+    {
+      "tag": "loneliness_drilldown_deepen_friendships",
+      "patterns": ["deepen friendships", "i have friends but i still feel alone", "my friendships feel shallow"],
+      "responses": ["That's a really important feeling to recognize. It's about quality, not just quantity. Deepening a friendship often comes from shared vulnerability. It could be as simple as asking a friend 'how are you *really* doing?' and being prepared to listen."],
+      "context_filter": "loneliness_context"
+    },
+    {
+      "tag": "bad_grade",
+      "patterns": ["i got a bad grade", "i failed my exam", "i'm so disappointed with my mark", "my gpa is ruined"],
+      "responses": ["Receiving a disappointing grade can feel devastating, and it's okay to be upset. Remember, one grade does not define your intelligence or your worth. Have you had a chance to think about what to do next, like speaking to the professor or a TA?"]
+    },
+    {
+      "tag": "imposter_syndrome",
+      "patterns": ["I feel like a fraud", "everyone is smarter than me", "I don't belong here", "they'll find out I'm not good enough"],
+      "responses": ["That feeling is called Imposter Syndrome, and it is incredibly common, especially among talented students. It's the persistent feeling that you've somehow tricked everyone into thinking you're competent. Please know you were accepted into your program for a reason."]
+    },
+    {
+      "tag": "burnout_check",
+      "patterns": ["i feel burnt out", "I'm exhausted", "I have no energy", "i can't do this anymore"],
+      "responses": ["Burnout is a state of deep exhaustion that's more than just feeling tired. It's a sign that you've been running on empty for too long. Are you able to take any time for yourself to rest and recharge right now?"],
+      "context_setter": "burnout_context"
+    },
+    {
+      "tag": "burnout_followup_no_time",
+      "patterns": ["i have no time", "i'm too busy to rest", "i can't take a break"],
+      "responses": ["That feeling of having zero time is a huge part of burnout. It feels like if you stop for even a second, you'll fall behind. But even a true 5-minute break away from your screen can help. Can you think of one tiny 5-minute window you might have?"],
+      "context_filter": "burnout_context"
+    },
+    {
+      "tag": "burnout_followup_ineffective_rest",
+      "patterns": ["i try to rest but it doesnt help", "resting feels useless", "i feel guilty when i rest"],
+      "responses": ["That's a really important point. Sometimes 'resting' by scrolling on our phones isn't actually restful. Active rest, like a short walk, listening to music, or sketching, can be much more effective at recharging your mind than passive screen time."],
+      "context_filter": "burnout_context"
+    },
+    {
+      "tag": "negative_self_talk",
+      "patterns": ["i'm so stupid", "i hate myself", "i'm a failure", "i'm worthless", "i'm not good enough"],
+      "responses": ["The way we talk to ourselves has a huge impact on how we feel. It sounds like your inner critic is being very loud and unkind right now. Would you be open to hearing about a simple technique to get those thoughts out of your head and onto paper?"],
+      "context_setter": "journaling_context"
+    },
+    {
+      "tag": "journaling_prompt",
+      "patterns": ["yes", "okay what is it?", "tell me the technique", "sure"],
+      "responses": ["It's called a 'Brain Dump.' You set a timer for just 5 or 10 minutes and write down absolutely everything that's on your mind. Don't worry about grammar or making sense. The goal is to just externalize the noise. It can bring a surprising amount of clarity."],
+      "context_filter": "journaling_context"
+    },
+    {
+      "tag": "explain_pomodoro",
+      "patterns": ["explain pomodoro", "what's the pomodoro technique"],
+      "responses": ["It's simple! You choose one task, set a timer for 25 minutes, and work on it without any distractions. When the timer rings, you take a 5-minute break. After four 'Pomodoros,' you take a longer break. It makes big tasks feel much less scary."],
+      "context_filter": "pomodoro_context"
+    },
+    {
+      "tag": "explain_breathing",
+      "patterns": ["let's try it", "okay"],
+      "responses": ["Okay. Let's try 'Box Breathing.' Breathe in slowly for 4 seconds. Hold your breath for 4 seconds. Breathe out slowly for 4 seconds. And hold your breath again for 4 seconds. Let's do that a few times together. In... two... three... four..."],
+      "context_filter": "breathing_exercise_context"
+    },
+    {
+      "tag": "explain_cognitive_reframing",
+      "patterns": ["yes tell me", "what is it?"],
+      "responses": ["Cognitive Reframing is about challenging your negative thoughts. When you have a worried thought like 'I'm going to fail this exam,' you can ask yourself: 'What's a more balanced way to look at this?' A reframe could be: 'I'm worried about this exam, but I've prepared for it, and I'll do my best.' It helps break the cycle of catastrophic thinking."],
+      "context_filter": "cognitive_reframing_context"
+    },
+    {
+      "tag": "frustration_slang",
+      "patterns": ["you are useless", "this is stupid", "you don't help", "f*ck this", "useless bot", "what the fuck", "what da hailll"],
+      "responses": ["I hear your frustration. It sounds like I'm not being helpful right now, and I'm sorry for that.", "It's completely understandable to feel frustrated. I am just a bot, and I might not get things right. I am still here to listen."]
+    },
+    {
+      "tag": "general_refusal",
+      "patterns": ["no i dont want to talk about it", "i'd rather not say", "nevermind", "stop asking", "no"],
+      "responses": ["Of course. No pressure at all. We can talk about something else, or just sit for a moment. Whatever feels right for you.", "That's completely okay. Thank you for letting me know. I'm here if you change your mind or want to talk about anything else."]
+    },
+    {
+      "tag": "exam_stress",
+      "patterns": ["I have a big exam coming up", "I'm panicking about my test", "I'm so stressed about my finals", "my exams", "an exam"],
+      "responses": ["Exam periods are incredibly high-pressure, it's completely normal to feel this way. Is the stress coming more from the huge amount of material to study, or is it more about the pressure to perform well?"],
+      "context_setter": "exam_stress_context"
+    },
+    {
+      "tag": "exam_followup_material",
+      "patterns": ["it's too much to study", "the amount of material", "i can't learn it all", "i'm overwhelmed by the content"],
+      "responses": ["That's a very real feeling, like trying to drink from a firehose. The best way to tackle it is to break it down. Have you tried making a simple study schedule, assigning specific topics to specific days?"],
+      "context_filter": "exam_stress_context"
+    },
+    {
+      "tag": "exam_followup_performance_anxiety",
+      "patterns": ["the pressure to perform", "i'm afraid i'll fail", "what if I blank out during the test", "performance anxiety"],
+      "responses": ["Performance anxiety is tough. It's the fear of the outcome, not just the test itself. One helpful technique is to practice positive self-talk. Instead of 'I'm going to fail,' try 'I have prepared for this, and I will do my best.' It can help calm the anxious part of your brain."],
+      "context_filter": "exam_stress_context"
+    },
+    {
+      "tag": "concentration_issues",
+      "patterns": ["i can't focus on studying", "i get distracted so easily", "my concentration is terrible", "i can't pay attention"],
+      "responses": ["It's incredibly hard to focus in today's world. Is the main issue digital distractions like your phone and social media, or is it that your mind tends to wander, even in a quiet room?"],
+      "context_setter": "concentration_context"
+    },
+    {
+      "tag": "concentration_followup_digital",
+      "patterns": ["digital distractions", "my phone", "i keep checking social media", "the internet is distracting"],
+      "responses": ["The phone is designed to pull your attention away. Have you tried using an app that blocks distracting websites for a set period? Even just moving your phone to another room while you study can work wonders."],
+      "context_filter": "concentration_context"
+    },
+    {
+      "tag": "concentration_followup_wandering_mind",
+      "patterns": ["my mind wanders", "i can't stop thinking about other things", "i just drift off"],
+      "responses": ["A wandering mind is not a flaw, it's just what minds do! The practice isn't to stop it, but to gently guide it back. When you notice you've drifted, just gently acknowledge it and guide your focus back to your work without judging yourself."],
+      "context_filter": "concentration_context"
+    },
+    {
+      "tag": "feeling_lost",
+      "patterns": ["I don't know what I'm doing with my life", "I feel so lost", "I'm not sure about my major", "I feel like I have no direction"],
+      "responses": ["Feeling lost is a very common part of being a student. It's a time of huge transition and uncertainty. That's okay. What part feels the most uncertain right now - your career path, your social life, or something else?"]
+    },
+    {
+      "tag": "family_pressure",
+      "patterns": ["my parents expect too much of me", "I'm disappointing my family", "I can't live up to my family's expectations", "my parents are putting a lot of pressure on me"],
+      "responses": ["That sounds incredibly difficult. Balancing your own path with the expectations of people you love is one of the hardest things to do. It's okay to feel torn. Your feelings are valid."]
+    },
+    {
+      "tag": "relationship_breakup",
+      "patterns": ["my girlfriend broke up with me", "my boyfriend left me", "I'm going through a breakup", "we broke up", "my gf broke up with me"],
+      "responses": ["Breakups are genuinely painful. It's a form of grief, and it's so important to give yourself time and space to feel it. There's no pressure to be 'over it' quickly. I'm here to listen if you want to talk about it."],
+      "context_setter": "breakup_context"
+    },
+    {
+      "tag": "breakup_drilldown_healing",
+      "patterns": ["it hurts so much", "how do I get over her", "how do i get over him", "i feel heartbroken"],
+      "responses": ["The pain is very real, and it's important to let yourself feel it. Healing isn't about forgetting, but about integrating the experience. Reconnecting with your own hobbies and friends can be a gentle way to start rebuilding your sense of self."],
+      "context_filter": "breakup_context"
+    },
+    {
+      "tag": "breakup_drilldown_contact",
+      "patterns": ["i want to talk to her again", "should I text him", "i want to see them"],
+      "responses": ["It's completely natural to want to reconnect. It might be helpful to ask yourself what you're hoping to achieve by talking to them again. Are you looking for closure, hoping to get back together, or something else?"],
+      "context_filter": "breakup_context"
+    },
+    {
+      "tag": "social_anxiety",
+      "patterns": ["I'm bad at making friends", "I'm too shy", "I have social anxiety"],
+      "responses": ["It takes a lot of energy to put yourself out there, and it's normal to feel anxious about it. Can we talk about some low-pressure ways to start?"],
+      "context_setter": "social_context"
+    },
+    {
+      "tag": "social_followup_small_steps",
+      "patterns": ["what steps?", "how?", "tell me more", "what are some ways"],
+      "responses": ["A great low-pressure step is joining a club related to a hobby you enjoy. The shared activity becomes the focus, not the conversation."],
+      "context_filter": "social_context"
+    },
+    {
+      "tag": "roommate_conflict",
+      "patterns": ["my roommate is annoying", "I have problems with my roommate"],
+      "responses": ["Living with someone new can be really tough. Is the issue related to different living habits, like cleanliness or noise?"],
+      "context_setter": "roommate_context"
+    },
+    {
+      "tag": "roommate_followup_cleanliness",
+      "patterns": ["they are messy", "it's about cleanliness", "the apartment is a mess", "they never clean"],
+      "responses": ["That's a very common source of conflict. It's tough when people have different standards of cleanliness. Sometimes a low-key conversation about creating a simple chore schedule can help, so the responsibility is clearly shared."],
+      "context_filter": "roommate_context"
+    },
+    {
+      "tag": "roommate_followup_noise",
+      "patterns": ["they are too loud", "it's about noise", "they always have people over", "i can't study because of the noise"],
+      "responses": ["Constant noise can make your own room feel like it's not a private space. A good first step could be to calmly talk about setting 'quiet hours' for studying or sleeping. It's a reasonable request to make."],
+      "context_filter": "roommate_context"
+    },
+    {
+      "tag": "time_management",
+      "patterns": ["I have no time", "how to manage my time", "too many deadlines"],
